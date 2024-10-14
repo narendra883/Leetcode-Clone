@@ -1,0 +1,56 @@
+.problems-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .problems-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .problems-table th,
+  .problems-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .problems-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .problems-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .problems-table td {
+    font-size: 14px;
+  }
+  
+  .problems-table .hard {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .problems-table .medium {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .problems-table .easy {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .solved {
+    background-color: #e0ffe0;
+  }
+  
+  .problems-table td:first-child {
+    width: 5%;
+  }
+  
+  .problems-table td:last-child {
+    text-transform: capitalize;
+  }
+  

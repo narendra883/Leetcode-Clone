@@ -1,26 +1,59 @@
 import React from 'react';
 import './Problems.css';
 
-const Problems = () => {
+const Problems = ({ onProblemSelect }) => {
   const problems = [
-    { id: 2530, title: 'Maximal Score After Applying K Operations',  difficulty: 'Medium'},
-    { id: 4, title: 'Median of Two Sorted Arrays', acceptance: '41.7%', difficulty: 'Hard' },
-    { id: 10, title: 'Regular Expression Matching', acceptance: '28.5%', difficulty: 'Hard' },
-    { id: 23, title: 'Merge k Sorted Lists', acceptance: '54.4%', difficulty: 'Hard' },
-    { id: 25, title: 'Reverse Nodes in k-Group', acceptance: '60.7%', difficulty: 'Hard' },
-    { id: 30, title: 'Substring with Concatenation of All Words', acceptance: '32.5%', difficulty: 'Hard' },
-    { id: 32, title: 'Longest Valid Parentheses', acceptance: '34.9%', difficulty: 'Hard' },
-    { id: 37, title: 'Sudoku Solver', acceptance: '63.1%', difficulty: 'Hard' },
-    { id: 41, title: 'First Missing Positive', acceptance: '40.0%', difficulty: 'Hard' },
-    { id: 42, title: 'Trapping Rain Water', acceptance: '63.3%', difficulty: 'Hard' },
-    { id: 44, title: 'Wildcard Matching', acceptance: '28.7%', difficulty: 'Hard' },
-    { id: 51, title: 'N-Queens', acceptance: '70.2%', difficulty: 'Hard' },
-    { id: 52, title: 'N-Queens II', acceptance: '75.1%', difficulty: 'Hard' },
-    { id: 60, title: 'Permutation Sequence', acceptance: '48.3%', difficulty: 'Hard' },
+    {
+      id: 2530,
+      title: 'Maximal Score After Applying K Operations',
+      difficulty: 'Medium',
+      description: `You are given a 0-indexed integer array nums and an integer k. 
+You have a starting score of 0.
+
+In one operation:
+- Choose an index i such that 0 <= i < nums.length.
+- Increase your score by nums[i], and replace nums[i] with ceil(nums[i] / 3).
+
+Return the maximum possible score you can attain after applying exactly k operations.
+
+The ceiling function ceil(val) is the least integer greater than or equal to val.
+
+Example 1:
+Input: nums = [10,10,10,10,10], k = 5  
+Output: 50  
+Explanation: Apply the operation to each array element exactly once. The final score is 10 + 10 + 10 + 10 + 10 = 50.
+
+Example 2:
+Input: nums = [1,10,3,3,3], k = 3  
+Output: 17  
+Explanation: You can do the following operations:
+1. Select i = 1, so nums becomes [1,4,3,3,3]. Your score increases by 10.
+2. Select i = 1, so nums becomes [1,2,3,3,3]. Your score increases by 4.
+3. Select i = 2, so nums becomes [1,1,1,3,3]. Your score increases by 3.
+
+The final score is 10 + 4 + 3 = 17.
+
+Constraints:
+1 <= nums.length, k <= 10^5  
+1 <= nums[i] <= 10^9`,
+    },
+    {
+      id: 4,
+      title: 'Median of Two Sorted Arrays',
+      difficulty: 'Hard',
+      description: 'Find the median of two sorted arrays...',
+    },
+    {
+      id: 10,
+      title: 'Regular Expression Matching',
+      difficulty: 'Hard',
+      description: 'Implement regular expression matching...',
+    },
   ];
 
   return (
     <div className="problems-container">
+      <h2>Problem List</h2>
       <table className="problems-table">
         <thead>
           <tr>
@@ -31,13 +64,10 @@ const Problems = () => {
         </thead>
         <tbody>
           {problems.map((problem) => (
-            <tr key={problem.id} className={problem.status === 'solved' ? 'solved' : ''}>
+            <tr key={problem.id} onClick={() => onProblemSelect(problem)}>
               <td>{problem.status === 'solved' ? '✔' : '❌'}</td>
               <td>{problem.title}</td>
-              
-              <td className={problem.difficulty === 'Hard' ? 'hard' : problem.difficulty === 'Medium' ? 'medium' : 'easy'}>
-                {problem.difficulty}
-              </td>
+              <td className={problem.difficulty.toLowerCase()}>{problem.difficulty}</td>
             </tr>
           ))}
         </tbody>
